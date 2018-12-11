@@ -1,18 +1,11 @@
 defmodule Exdbmx do
-  @moduledoc """
-  Documentation for Exdbmx.
-  """
+  @on_load :load_nifs
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Exdbmx.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def load_nifs do
+    :erlang.load_nif('priv/build/mdbx', 0)
   end
+
+  # def pow(_input, _difficulty) do
+  #   raise "NIF Itsuku.hash/2 not implemented"
+  # end
 end
